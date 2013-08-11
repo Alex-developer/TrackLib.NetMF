@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AssemblyName>TrackLib.NetMF</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TrackLib.NetMF</RootNamespace>
+    <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{096502CF-FEB5-4FF1-BA2D-3D929DAE3FE5}</ProjectGuid>
+    <TargetFrameworkVersion>v4.2</TargetFrameworkVersion>
+    <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
+  <ItemGroup>
+    <Compile Include="Classes\Orbit\NoradBase.cs" />
+    <Compile Include="Classes\Orbit\NoradSDP4.cs" />
+    <Compile Include="Classes\Orbit\NoradSGP4.cs" />
+    <Compile Include="Classes\Orbit\Orbit.cs" />
+    <Compile Include="Classes\Orbit\Track\Pass.cs" />
+    <Compile Include="Classes\Orbit\Track\SSP.cs" />
+    <Compile Include="Classes\Orbit\Track\Track.cs" />
+    <Compile Include="Classes\SatCore\Coord.cs" />
+    <Compile Include="Classes\SatCore\CoordGeo.cs" />
+    <Compile Include="Classes\SatCore\Eci.cs" />
+    <Compile Include="Classes\SatCore\Globals.cs" />
+    <Compile Include="Classes\SatCore\Julian.cs" />
+    <Compile Include="Classes\SatCore\Site.cs" />
+    <Compile Include="Classes\SatCore\Tle.cs" />
+    <Compile Include="Classes\SatCore\Vector.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SPOT.Native">
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NETMF.CommonExtensions\NetMf.CommonExtensions\NetMf.CommonExtensions.csproj">
+      <Project>{58F72289-F396-4CCA-8120-B7179C05FF99}</Project>
+      <Name>NetMf.CommonExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
